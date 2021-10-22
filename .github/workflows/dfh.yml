@@ -1,0 +1,62 @@
+name: dfh
+
+on:
+  workflow_dispatch:
+  schedule:
+      - cron: '20 0-15 * * *'
+jobs:
+  build:
+    runs-on: macos-latest
+    timeout-minutes: 250
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: npm install
+        run: |
+          npm install md5-node
+          npm install
+      - name: '运行 【dfh】'
+        run: | 
+          node Task/dfh.js
+
+    env:
+          DFH: ${{ secrets.DFH }}
+          DFHnum: ${{ secrets.DFHnum1 }}
+          QYWX_KEY: ${{ secrets.QYWX_KEY }}
+          PUSH_PLUS_TOKEN: ${{ secrets.PUSH_PLUS_TOKEN }}
+          PUSH_KEY: ${{ secrets.PUSH_KEY2 }}
+          BARK_PUSH: ${{ secrets.BARK_PUSH }}
+
+  build2:
+    runs-on: macos-latest
+    timeout-minutes: 250
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: npm install
+        run: |
+          npm install md5-node
+          npm install
+      - name: '运行 【dfh】'
+        run: | 
+          node Task/dfh2.js
+
+    env:
+          DFH: ${{ secrets.DFH }}
+          DFHnum: ${{ secrets.DFHnum2 }}
+          QYWX_KEY: ${{ secrets.QYWX_KEY }}
+          PUSH_PLUS_TOKEN: ${{ secrets.PUSH_PLUS_TOKEN }}
+          PUSH_KEY: ${{ secrets.PUSH_KEY }}
+          BARK_PUSH: ${{ secrets.BARK_PUSH }}
