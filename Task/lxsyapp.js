@@ -90,7 +90,7 @@ async function byxiaopeng() {
   webk = suijiid16()
   PHPSESSIDs = MD5_Encrypt(`${user}`)
   PHPSESSID = PHPSESSIDs.slice(0, 26)
-  await panduan() 
+  await panduan()
 }
 //脚本判断
 function panduan(timeout = 0) {
@@ -108,7 +108,7 @@ function panduan(timeout = 0) {
         if (result.lxsycode == 1) {
           $.log(`\n【脚本状态】：${result.lxsymsg}`)
           $.message += `\n【脚本状态】：${result.lxsymsg}`
-          await dutang() 
+          await dutang()
           await $.wait(1000)
           await login()
           await $.wait(1000)
@@ -157,15 +157,20 @@ function login(timeout = 0) {
     let url = {
       url: `${host}/mobile/login.html`,
       headers: {
-        "accept": "text/html, */*; q=0.01",
-        "accept-language": "zh-CN,zh;q=0.9,en;q=0.8",
-        "User-Agent": "Mozilla/5.0 (Linux; Android 7.1.2; MI 9 Build/N2G48H; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/68.0.3440.70 Mobile Safari/537.36 AgentWeb/4.1.9  UCBrowser/11.6.4.950",
+        'X-Requested-With' : `XMLHttpRequest`,
+        'Connection' : `keep-alive`,
+        'Accept-Encoding' : `gzip, deflate, br`,
+        'X-PJAX' : `true`,
+        'Content-Type' : `multipart/form-data; boundary=----WebKitFormBoundaryEC3pgf4BSW2AuClP`,
+        'Origin' : `https://lianxingshiye.cn`,
+        'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 14_7_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Mobile/15E148 Safari/604.1`,
+        'X-PJAX-Container' : `#pjax-msg`,
+        'Host' : `lianxingshiye.cn`,
+        'Accept-Language' : `zh-cn`,
+        'Accept' : `text/html, */*; q=0.01`,
         "content-type": `multipart/form-data; boundary=----WebKitFormBoundary${webk}`,
-        "X-Requested-With": "XMLHttpRequest",
-        "x-pjax": "true",
-        "x-pjax-container": "#pjax-msg",
         "cookie": `PHPSESSID=${PHPSESSID}`,
-        "Referer": "https://lianxingshiye.cn/mobile/login.html"
+        "Referer": "https://lianxingshiye.cn/mobile/login.html",
       },
       body:`------WebKitFormBoundary${webk}\r\nContent-Disposition: form-data; name=\"account\"\r\n\r\n${user}\r\n------WebKitFormBoundary${webk}\r\nContent-Disposition: form-data; name=\"password\"\r\n\r\n${mima}\r\n------WebKitFormBoundary${webk}--\r\n`
     }
