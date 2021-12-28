@@ -1,0 +1,84 @@
+name: lxsy
+
+on:
+  workflow_dispatch:
+  schedule:
+      - cron: '0 0 * * *'
+jobs:
+  build:
+    runs-on: macos-latest
+    timeout-minutes: 20
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: npm install
+        run: |
+          npm install
+          npm install iconv-lite
+      - name: '运行 【lxsy】'
+        run: | 
+          node Task/lxsyapp.js
+    env:
+          lxsyck: ${{ secrets.1lxsyck1}}
+          QYWX_KEY: ${{ secrets.QYWX_KEY }}
+          PUSH_PLUS_TOKEN: ${{ secrets.PUSH_PLUS_TOKEN }}
+          PUSH_KEY: ${{ secrets.PUSH_KEY2 }}
+          BARK_PUSH: ${{ secrets.BARK_PUSH }}
+
+  build2:
+    runs-on: macos-latest
+    timeout-minutes: 20
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: npm install
+        run: |
+          npm install
+          npm install iconv-lite
+      - name: '运行 【lxsy2】'
+        run: | 
+          node Task/lxsyapp.js
+    env:
+          lxsyck: ${{ secrets.1lxsyck2}}
+          QYWX_KEY: ${{ secrets.QYWX_KEY }}
+          PUSH_PLUS_TOKEN: ${{ secrets.PUSH_PLUS_TOKEN }}
+          PUSH_KEY: ${{ secrets.PUSH_KEY2 }}
+          BARK_PUSH: ${{ secrets.BARK_PUSH }}
+
+  build3:
+    runs-on: macos-latest
+    timeout-minutes: 20
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: npm install
+        run: |
+          npm install
+          npm install iconv-lite
+      - name: '运行 【lxsy3】'
+        run: | 
+          node Task/lxsyapp.js
+    env:
+          lxsyck: ${{ secrets.1lxsyck3}}
+          QYWX_KEY: ${{ secrets.QYWX_KEY }}
+          PUSH_PLUS_TOKEN: ${{ secrets.PUSH_PLUS_TOKEN }}
+          PUSH_KEY: ${{ secrets.PUSH_KEY2 }}
+          BARK_PUSH: ${{ secrets.BARK_PUSH }}
