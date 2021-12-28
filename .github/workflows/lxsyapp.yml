@@ -3,7 +3,7 @@ name: lxsy
 on:
   workflow_dispatch:
   schedule:
-      - cron: '20 0-15 * * *'
+      - cron: '0 0 * * *'
 jobs:
   build:
     runs-on: macos-latest
