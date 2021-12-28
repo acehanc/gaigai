@@ -43,7 +43,7 @@ $.message = ''
         if (lxsyckArr[i]) {
           lxsyck = lxsyckArr[i];
           $.index = i + 1;
-          console.log(`\n开始【联兴实业账户 ${$.index}】`)
+          console.log(`\n开始【联兴实业账户 ${$.index}__ ${zhanghu}】`)
           zhanghu = lxsyck.split('#')
           user = zhanghu[0]
           mima = zhanghu[1]
