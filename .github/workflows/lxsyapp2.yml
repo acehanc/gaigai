@@ -1,4 +1,4 @@
-name: lxsy
+name: lxsy2
 
 on:
   workflow_dispatch:
@@ -25,7 +25,7 @@ jobs:
         run: | 
           node Task/lxsyapp.js
     env:
-          lxsyck: ${{ secrets.1lxsyck1}}
+          lxsyck: ${{ secrets.lxsyck101}}
           QYWX_KEY: ${{ secrets.QYWX_KEY }}
           PUSH_PLUS_TOKEN: ${{ secrets.PUSH_PLUS_TOKEN }}
           PUSH_KEY: ${{ secrets.PUSH_KEY2 }}
@@ -51,7 +51,7 @@ jobs:
         run: | 
           node Task/lxsyapp.js
     env:
-          lxsyck: ${{ secrets.1lxsyck2}}
+          lxsyck: ${{ secrets.lxsyck102}}
           QYWX_KEY: ${{ secrets.QYWX_KEY }}
           PUSH_PLUS_TOKEN: ${{ secrets.PUSH_PLUS_TOKEN }}
           PUSH_KEY: ${{ secrets.PUSH_KEY2 }}
@@ -77,7 +77,7 @@ jobs:
         run: | 
           node Task/lxsyapp.js
     env:
-          lxsyck: ${{ secrets.1lxsyck3}}
+          lxsyck: ${{ secrets.lxsyck103}}
           QYWX_KEY: ${{ secrets.QYWX_KEY }}
           PUSH_PLUS_TOKEN: ${{ secrets.PUSH_PLUS_TOKEN }}
           PUSH_KEY: ${{ secrets.PUSH_KEY2 }}
