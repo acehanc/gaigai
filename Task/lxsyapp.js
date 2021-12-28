@@ -11,7 +11,7 @@ boxjs地址:https://gitee.com/gossh520/script/raw/master/byxiaopeng.boxjs.json
 // [task_local]
 //#联兴实业
 // 10 8 * * * https://gitee.com/gossh520/script/raw/master/lxsyapp.js, tag=联兴实业, enabled=true
-const $ = new Env('联兴实业APP签到');
+const $ = new Env('联兴实业APP签到-github');
 const notify = $.isNode() ? require('./sendNotify') : '';
 let status;
 status = (status = ($.getval("lxsystatus") || "1")) > 1 ? `${status}` : ""; // 账号扩展字符
@@ -46,7 +46,8 @@ $.message = ''
           zhanghu = lxsyck.split('#')
           user = zhanghu[0]
           mima = zhanghu[1]
-          console.log(`\n开始【联兴实业账户 ${$.index}__ ${zhanghu}】`)
+          console.log(`\n开始【联兴实业账户 ${$.index}__${user}】`)
+          console.log(`${user}`)
           await byxiaopeng()
         }
       }
