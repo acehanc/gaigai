@@ -46,7 +46,7 @@ $.message = ''
           zhanghu = lxsyck.split('#')
           user = zhanghu[0]
           mima = zhanghu[1]
-          console.log(`\n开始【联兴实业账户 ${$.index}】`)
+          console.log(`\n开始【联兴实业账户${$.index}】-github`)
           await byxiaopeng()
         }
       }
