@@ -8,9 +8,9 @@ https:\/\/kandian\.wkandian\.com\/v5\/user\/stay\.json url script-request-body h
 
 https:\/\/kandian\.wkandian\.com\/v5\/\w+\/withdraw\d?\.json url script-request-body https://raw.githubusercontent.com/acehanc/gaigai/main/Task/youth.js
 
-https:\/\/kandian\.wkandian\.com\/v2\/share\/put\.json url script-request-body https://raw.githubusercontent.com/acehanc/gaigai/main/Task/youth.js
+https:\/\/kandian\.wkandian\.com\/v2\/article\/share\/put\.json url script-request-header https://raw.githubusercontent.com/acehanc/gaigai/main/Task/youth.js
 
-https:\/\/script\.baertt\.com\/count2\/callback  url script-request-header https://raw.githubusercontent.com/acehanc/gaigai/main/Task/youth.js
+https:\/\/script\.baertt\.com\/count2\/storage  url script-request-header https://raw.githubusercontent.com/acehanc/gaigai/main/Task/youth.js
 
 https:\/\/kandian\.wkandian\.com\/v6\/count\/start\.json  url script-request-body https://raw.githubusercontent.com/acehanc/gaigai/main/Task/youth.js
 
