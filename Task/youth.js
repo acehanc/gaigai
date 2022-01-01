@@ -763,37 +763,37 @@ function GetCookie() {
 		signheaderVal = JSON.stringify($request.headers);
 		if (signheaderVal) $.setdata(signheaderVal, 'YOUTH_HEADER');
 		$.log(`${$.name}获取Cookie: 成功, signheaderVal: ${signheaderVal}`);
-		$.msg($.name, `获取Cookie: 成功🎉`, ``)
+		$.msg($.name, `获取Cookie: 成功🎉`, `${signheaderVal}`)
 	} else if ($request && $request.method != `OPTIONS` && $request.url.match(/\/article\/info\/get/)) {
 		articlebodyVal = $request.url.split("?")[1];
 		if (articlebodyVal) $.setdata(articlebodyVal, 'YOUTH_READBODY');
 		$.log(`${$.name}获取阅读: 成功, articbody: ${articlebodyVal}`);
-		$.msg($.name, `获取阅读请求: 成功🎉`, ``)
+		$.msg($.name, `获取阅读请求: 成功🎉`, `${articlebodyVal}`)
 	} else if ($request && $request.method != `OPTIONS` && $request.url.match(/\/v5\/user\/stay/)) {
 		const timebodyVal = $request.body;
 		if (timebodyVal) $.setdata(timebodyVal, 'YOUTH_READTIMEBODY');
 		$.log(`${$.name}获取阅读时长: 成功, timebodyVal: ${timebodyVal}`);
-		$.msg($.name, `获取阅读时长: 成功🎉`, ``)
+		$.msg($.name, `获取阅读时长: 成功🎉`, `${timebodyVal}`)
 	} else if ($request && $request.method != `OPTIONS` && $request.url.match(/\/withdraw\d?\.json/)) {
 		const withdrawVal = $request.body;
 		if (withdrawVal) $.setdata(withdrawVal, 'YOUTH_WITHDRAWBODY');
 		$.log(`${$.name}, 获取提现请求: 成功, withdrawBody: ${withdrawVal}`);
-		$.msg($.name, `获取提现请求: 成功🎉`, ``)
+		$.msg($.name, `获取提现请求: 成功🎉`, `${withdrawVal}`)
 	} else if ($request && $request.method != `OPTIONS` && $request.url.match(/\/article\/share\/put\.json/)) {
 		const SHAREBODYVal = $request.url.split("?")[1];
 		if (SHAREBODYVal) $.setdata(SHAREBODYVal, 'YOUTH_SHAREBODY');
 		$.log(`${$.name}, 获取分享body: 成功, YOUTH_SHAREBODY: ${SHAREBODYVal}`);
-		$.msg($.name, `获取分享body: 成功🎉`, ``)
+		$.msg($.name, `获取分享body: 成功🎉`, `${SHAREBODYVal}`)
 	} else if ($request && $request.method != `OPTIONS` && $request.url.match(/\/count2\/callback/)) {
 		const SHAREURLVal = $request.url;
 		if (SHAREURLVal) $.setdata(SHAREURLVal, 'YOUTH_SHAREURL');
 		$.log(`${$.name}, 获取分享阅读url: 成功, YOUTH_SHAREURL: ${SHAREURLVal}`);
-		$.msg($.name, `获取分享阅读url: 成功🎉`, ``)
+		$.msg($.name, `获取分享阅读url: 成功🎉`, `${SHAREURLVal}`)
 	} else if ($request && $request.method != `OPTIONS` && $request.url.match(/\/count\/start\.json/)) {
 		const STARTBODYVal = $request.body;
 		if (STARTBODYVal) $.setdata(STARTBODYVal, 'YOUTH_STARTBODY');
 		$.log(`${$.name}, 获取启动body: 成功, YOUTH_STARTBODY: ${STARTBODYVal}`);
-		$.msg($.name, `获取启动body: 成功🎉`, ``)
+		$.msg($.name, `获取启动body: 成功🎉`, `${STARTBODYVal}`)
 	}
 }
 
