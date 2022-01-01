@@ -784,8 +784,9 @@ function GetCookie() {
 		if (SHAREBODYVal) $.setdata(SHAREBODYVal, 'YOUTH_SHAREBODY');
 		$.log(`${$.name}, 获取分享body: 成功, YOUTH_SHAREBODY: ${SHAREBODYVal}`);
 		$.msg($.name, `获取分享body: 成功🎉`, `${SHAREBODYVal}`)
-	} else if ($request && $request.method != `OPTIONS` && $request.url.match(/\/count2\/callback/)) {
+	} else if ($request && $request.method != `OPTIONS` && $request.url.match(/\/count2\/storage/)) {
 		const SHAREURLVal = $request.url;
+        SHAREURLVal = SHAREURLVal.replace("storage","callback")
 		if (SHAREURLVal) $.setdata(SHAREURLVal, 'YOUTH_SHAREURL');
 		$.log(`${$.name}, 获取分享阅读url: 成功, YOUTH_SHAREURL: ${SHAREURLVal}`);
 		$.msg($.name, `获取分享阅读url: 成功🎉`, `${SHAREURLVal}`)
