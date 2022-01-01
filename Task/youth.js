@@ -32,6 +32,11 @@ let cookieArr = [],cookie = '';
 let readArr = [],articbody = '';
 let timeArr = [],timebody = '';
 
+
+let YouthBody = $.getdata('youth_autoread')||$.getdata("zqgetbody_body");
+let startbodys = $.getdata('youth_start');
+let lookbodys = $.getdata('youth_look')
+
 // 脚本部分
 if (isGetCookie = typeof $request !== 'undefined') {
     GetCookie();
@@ -853,7 +858,7 @@ function GetCookie() {
         $.log(`${$.name}获取阅读时长: 成功, timebodyVal: ${timebodyVal}`);
         $.msg($.name, `获取阅读时长: 成功🎉`, ``)
     }
-    
+
 }
 
 function GetCookie22(){if($request&&$request.method!=`OPTIONS`&&$request.url.match(/\/NewTaskIos\/getTaskList/)){RefererVal=$request.headers.Referer;signheaderVal=RefererVal.match(/&uid=\d+/)+RefererVal.match(/&cookie=[_a-zA-Z0-9-]+/)+RefererVal.match(/&cookie_id=[a-zA-Z0-9]+/);if(signheaderVal)$.setdata(signheaderVal,'youthheader_zq');$.log(`${$.name}获取Cookie: 成功, signheaderVal: $}`);$.msg($.name,`获取Cookie: 成功🎉`,``)}else if($request&&$request.method!=`OPTIONS`&&$request.url.match(/\/article\/info\/get/)){articlebodyVal=$request.url.split("?")[1];if(articlebodyVal)$.setdata(articlebodyVal,'read_zq');$.log(`${$.name}获取阅读: 成功, articbody: ${articlebodyVal}`);$.msg($.name,`获取阅读请求: 成功🎉`,``)}else if($request&&$request.method!=`OPTIONS`&&$request.url.match(/\/v5\/user\/stay/)){const timebodyVal=$request.body;if(timebodyVal)$.setdata(timebodyVal,'readtime_zq');$.log(`${$.name}获取阅读时长: 成功, timebodyVal: ${timebodyVal}`);$.msg($.name,`获取阅读时长: 成功🎉`,``)}else if($request&&$request.method!=`OPTIONS`&&$request.url.match(/\/withdraw\d?\.json/)){const withdrawVal=$request.body;const withdrawUrl=$request.url;if(withdrawVal)$.setdata(withdrawVal,'cashbody_zq');if(withdrawUrl)$.setdata(withdrawUrl,'cashurl_zq');$.log(`${$.name}, 获取提现请求: 成功, withdrawUrl: ${withdrawUrl}`);$.log(`${$.name}, 获取提现请求: 成功, withdrawBody: ${withdrawVal}`);$.msg($.name,`获取提现请求: 成功🎉`,``)}}
