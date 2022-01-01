@@ -762,7 +762,7 @@ function GetCookie() {
 	if ($request && $request.method != `OPTIONS` && $request.url.match(/\/NewTaskIos\/getTaskList/)) {
 		signheaderVal = JSON.stringify($request.headers);
 		if (signheaderVal) $.setdata(signheaderVal, 'YOUTH_HEADER');
-		$.log(`${$.name}获取Cookie: 成功, signheaderVal: $}`);
+		$.log(`${$.name}获取Cookie: 成功, signheaderVal: ${signheaderVal}`);
 		$.msg($.name, `获取Cookie: 成功🎉`, ``)
 	} else if ($request && $request.method != `OPTIONS` && $request.url.match(/\/article\/info\/get/)) {
 		articlebodyVal = $request.url.split("?")[1];
