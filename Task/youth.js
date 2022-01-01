@@ -760,7 +760,7 @@ async function showmsg() {
 
 function GetCookie() {
 	if ($request && $request.method != `OPTIONS` && $request.url.match(/\/NewTaskIos\/getTaskList/)) {
-		signheaderVal = $request.headers;
+		signheaderVal = JSON.stringify($request.headers);
 		if (signheaderVal) $.setdata(signheaderVal, 'YOUTH_HEADER');
 		$.log(`${$.name}获取Cookie: 成功, signheaderVal: $}`);
 		$.msg($.name, `获取Cookie: 成功🎉`, ``)
