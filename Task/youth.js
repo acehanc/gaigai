@@ -840,6 +840,7 @@ function GetCookie() {
         if (bodyVal) {
           $.setdata(bodyVal, 'youth_zhbody');
           $.log(`${$.name}获取转换信息: 成功, youth_zhbody: ${bodyVal}`);
+          $.msg($.name, `获取转换信息: 成功🎉`, ``)
         }
     }
     if ($request.url.match(/\/kandian.wkandian.com\/v6\/withdraw\/payMethodList/)) {
@@ -847,6 +848,7 @@ function GetCookie() {
         if (bodyVal) {
             $.setdata(bodyVal, 'youth_txurl');
             $.log(`${$.name}获取提现信息: 成功, youth_txurl: ${bodyVal}`);
+            $.msg($.name, `获取提现信息: 成功🎉`, ``)
         }
     }
     if ($request.url.match(/\/kd.youth.cn\/withdraw\/getOrderList/)) {
@@ -854,11 +856,13 @@ function GetCookie() {
         bodyVal = $request.body
         if (headerVal) {
             $.setdata(headerVal, 'youth_mxheader');
-            $.log(`${$.name}获取模型headerVal: 成功, youth__mxheader: ${headerVal}`);
+            $.log(`${$.name}获取模型headerVal: 成功, youth_mxheader: ${headerVal}`);
+            $.msg($.name, `获取第一个模型headerVal请求: 成功🎉`, ``)
         }
         if (bodyVal) {
             $.setdata(bodyVal, 'youth_mxbody');
             $.log(`${$.name}获取模型body: 成功, youth__mxbody: ${bodyVal}`);
+            $.msg($.name, `获取第一个模型body请求: 成功🎉`, ``)
         }
     }
 
