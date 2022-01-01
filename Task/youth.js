@@ -834,29 +834,36 @@ function GetCookie() {
         $.setdata(lookbodys, 'youth_look');
         $.log("获取浏览赚请求: " + seeVal)
     }
-
-    if ($request && $request.method != `OPTIONS` && $request.url.match(/\/article\/info\.json/)) {
-        bodyVal = $request.url.split("?")[1];
-        if (YouthBody) {
-            if (YouthBody.indexOf(bodyVal) > -1) {
-                $.log("此阅读请求已存在，本次跳过")
-            } else if (YouthBody.indexOf(bodyVal) == -1) {
-                YouthBodys = YouthBody + "&" + bodyVal;
-                $.setdata(YouthBodys, 'youth_autoread');
-                $.log(`${$.name}获取阅读: 成功, YouthBodys: ${bodyVal}`);
-                bodys = YouthBodys.split("&")
-                $.msg($.name, "获取第" + bodys.length + "个阅读请求: 成功🎉", ``)
-            }
-        } else {
-            $.setdata(bodyVal, 'youth_autoread');
-            $.log(`${$.name}获取阅读: 成功, YouthBodys: ${bodyVal}`);
-            $.msg($.name, `获取第一个阅读请求: 成功🎉`, ``)
+    
+    if ($request.url.match(/\/kandian.wkandian.com\/v5\/wechat\/binding5/)) {
+        bodyVal = $request.body
+        if (bodyVal) {
+          $.setdata(bodyVal, 'youth_zhbody');
+          $.log(`${$.name}获取转换: 成功, youth_zhbody: ${bodyVal}`);
+          $.msg($.name, `获取第一个转换请求: 成功🎉`, ``)
         }
-    } else if ($request && $request.method != `OPTIONS` && $request.url.match(/\/v5\/user\/stay/)) {
-        const timebodyVal = $request.body;
-        if (timebodyVal) $.setdata(timebodyVal, 'autotime_zq');
-        $.log(`${$.name}获取阅读时长: 成功, timebodyVal: ${timebodyVal}`);
-        $.msg($.name, `获取阅读时长: 成功🎉`, ``)
+    }
+    if ($request.url.match(/\/kandian.wkandian.com\/v6\/withdraw\/payMethodList/)) {
+        bodyVal = $request.url
+        if (bodyVal) {
+            $.setdata(bodyVal, 'youth_txurl');
+            $.log(`${$.name}获取转换: 成功, youth_txurl: ${bodyVal}`);
+            $.msg($.name, `获取第一个转换请求: 成功🎉`, ``)
+        }
+    }
+    if ($request.url.match(/\/kd.youth.cn\/withdraw\/getOrderList/)) {
+        headerVal = JSON.stringify($request.headers);
+        bodyVal = $request.body
+        if (headerVal) {
+            $.setdata(headerVal, 'youth_mxheader');
+            $.log(`${$.name}获取模型headerVal: 成功, youth__mxheader: ${headerVal}`);
+            $.msg($.name, `获取第一个模型headerVal请求: 成功🎉`, ``)
+        }
+        if (bodyVal) {
+            $.setdata(bodyVal, 'youth_mxbody');
+            $.log(`${$.name}获取模型body: 成功, youth__mxbody: ${bodyVal}`);
+            $.msg($.name, `获取第一个模型body请求: 成功🎉`, ``)
+        }
     }
 
 }
