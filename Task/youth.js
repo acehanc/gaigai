@@ -786,16 +786,74 @@ function GetCookie() {
 		$.msg($.name, `获取分享body: 成功🎉`, `${SHAREBODYVal}`)
 	} else if ($request && $request.method != `OPTIONS` && $request.url.match(/\/count2\/storage/)) {
 		const SHAREURLVal = $request.url;
-        SHAREURLVal = SHAREURLVal.replace("storage","callback")
-		if (SHAREURLVal) $.setdata(SHAREURLVal, 'YOUTH_SHAREURL');
-		$.log(`${$.name}, 获取分享阅读url: 成功, YOUTH_SHAREURL: ${SHAREURLVal}`);
-		$.msg($.name, `获取分享阅读url: 成功🎉`, `${SHAREURLVal}`)
+        SHAREURLVal1 = SHAREURLVal.replace("storage","callback")
+		if (SHAREURLVal1) $.setdata(SHAREURLVal1, 'YOUTH_SHAREURL');
+		$.log(`${$.name}, 获取分享阅读url: 成功, YOUTH_SHAREURL: ${SHAREURLVal1}`);
+		$.msg($.name, `获取分享阅读url: 成功🎉`, `${SHAREURLVal1}`)
 	} else if ($request && $request.method != `OPTIONS` && $request.url.match(/\/count\/start\.json/)) {
 		const STARTBODYVal = $request.body;
 		if (STARTBODYVal) $.setdata(STARTBODYVal, 'YOUTH_STARTBODY');
 		$.log(`${$.name}, 获取启动body: 成功, YOUTH_STARTBODY: ${STARTBODYVal}`);
 		$.msg($.name, `获取启动body: 成功🎉`, `${STARTBODYVal}`)
 	}
+
+    if ($request && $request.method != 'OPTIONS' && $request.url.match(/\/browse_start\.json/)) {
+        startbodyVal = $request.body;
+        if (startbodys) {
+            if (startbodys.indexOf(startbodyVal) > -1) {
+                $.msg($.name, '阅读请求重复，本次跳过');
+                return
+            } else if (startbodys.indexOf(startbodyVal) == -1) {
+                startbodys += "&" + startbodyVal
+            }
+        } else {
+            startbodys = $request.body
+        }
+        $.setdata(startbodys, 'youth_start');
+        $.log("获取浏览赚请求: " + startbodyVal);
+        $.msg($.name, '获取浏览赚请求成功')
+    } else if ($request && $request.method != 'OPTIONS' && $request.url.match(/\/adlickstart\.json/)) {
+        seeVal = $request.body;
+        if (lookbodys) {
+            if (lookbodys.indexOf(seeVal) > -1) {
+                $.msg($.name, '阅读请求重复，本次跳过');
+                return
+            } else if (lookbodys.indexOf(seeVal) == -1) {
+                lookbodys += "&" + seeVal
+                $.msg($.name, '获取看看赚请求' + lookbodys.split("&").length + '成功')
+            }
+        } else {
+            lookbodys = $request.body
+            $.msg($.name, '获取看看赚请求成功')
+        }
+        $.setdata(lookbodys, 'youth_look');
+        $.log("获取浏览赚请求: " + seeVal)
+    }
+
+    if ($request && $request.method != `OPTIONS` && $request.url.match(/\/article\/info\/get/)) {
+        bodyVal = $request.url.split("?")[1];
+        if (YouthBody) {
+            if (YouthBody.indexOf(bodyVal) > -1) {
+                $.log("此阅读请求已存在，本次跳过")
+            } else if (YouthBody.indexOf(bodyVal) == -1) {
+                YouthBodys = YouthBody + "&" + bodyVal;
+                $.setdata(YouthBodys, 'youth_autoread');
+                $.log(`${$.name}获取阅读: 成功, YouthBodys: ${bodyVal}`);
+                bodys = YouthBodys.split("&")
+                $.msg($.name, "获取第" + bodys.length + "个阅读请求: 成功🎉", ``)
+            }
+        } else {
+            $.setdata(bodyVal, 'youth_autoread');
+            $.log(`${$.name}获取阅读: 成功, YouthBodys: ${bodyVal}`);
+            $.msg($.name, `获取第一个阅读请求: 成功🎉`, ``)
+        }
+    } else if ($request && $request.method != `OPTIONS` && $request.url.match(/\/v5\/user\/stay/)) {
+        const timebodyVal = $request.body;
+        if (timebodyVal) $.setdata(timebodyVal, 'autotime_zq');
+        $.log(`${$.name}获取阅读时长: 成功, timebodyVal: ${timebodyVal}`);
+        $.msg($.name, `获取阅读时长: 成功🎉`, ``)
+    }
+    
 }
 
 function GetCookie22(){if($request&&$request.method!=`OPTIONS`&&$request.url.match(/\/NewTaskIos\/getTaskList/)){RefererVal=$request.headers.Referer;signheaderVal=RefererVal.match(/&uid=\d+/)+RefererVal.match(/&cookie=[_a-zA-Z0-9-]+/)+RefererVal.match(/&cookie_id=[a-zA-Z0-9]+/);if(signheaderVal)$.setdata(signheaderVal,'youthheader_zq');$.log(`${$.name}获取Cookie: 成功, signheaderVal: $}`);$.msg($.name,`获取Cookie: 成功🎉`,``)}else if($request&&$request.method!=`OPTIONS`&&$request.url.match(/\/article\/info\/get/)){articlebodyVal=$request.url.split("?")[1];if(articlebodyVal)$.setdata(articlebodyVal,'read_zq');$.log(`${$.name}获取阅读: 成功, articbody: ${articlebodyVal}`);$.msg($.name,`获取阅读请求: 成功🎉`,``)}else if($request&&$request.method!=`OPTIONS`&&$request.url.match(/\/v5\/user\/stay/)){const timebodyVal=$request.body;if(timebodyVal)$.setdata(timebodyVal,'readtime_zq');$.log(`${$.name}获取阅读时长: 成功, timebodyVal: ${timebodyVal}`);$.msg($.name,`获取阅读时长: 成功🎉`,``)}else if($request&&$request.method!=`OPTIONS`&&$request.url.match(/\/withdraw\d?\.json/)){const withdrawVal=$request.body;const withdrawUrl=$request.url;if(withdrawVal)$.setdata(withdrawVal,'cashbody_zq');if(withdrawUrl)$.setdata(withdrawUrl,'cashurl_zq');$.log(`${$.name}, 获取提现请求: 成功, withdrawUrl: ${withdrawUrl}`);$.log(`${$.name}, 获取提现请求: 成功, withdrawBody: ${withdrawVal}`);$.msg($.name,`获取提现请求: 成功🎉`,``)}}
