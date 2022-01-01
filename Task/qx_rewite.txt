@@ -15,12 +15,11 @@ https:\/\/script\.baertt\.com\/count2\/storage  url script-request-header https:
 https:\/\/kandian\.wkandian\.com\/v6\/count\/start\.json  url script-request-body https://raw.githubusercontent.com/acehanc/gaigai/main/Task/youth.js
 
 
+https:\/\/kandian\.wkandian\.com\/v5\/wechat\/binding5  url script-request-header https://raw.githubusercontent.com/acehanc/gaigai/main/Task/youth.js
 
-https:\/\/kandian\.wkandian\.com\/v5\/article\/info\.json url script-request-body https://raw.githubusercontent.com/acehanc/gaigai/main/Task/youth.js
+https:\/\/kandian\.wkandian\.com\/v6\/withdraw\/payMethodList  url script-request-header https://raw.githubusercontent.com/acehanc/gaigai/main/Task/youth.js
 
-https:\/\/kandian\.wkandian\.com\/v5\/article\/detail\.json url script-request-header https://raw.githubusercontent.com/acehanc/gaigai/main/Task/youth.js
-
-https:\/\/kandian\.wkandian\.com\/v5\/article\/complete\.json url script-request-body https://raw.githubusercontent.com/acehanc/gaigai/main/Task/youth.js
+https:\/\/kd\.youth\.cn\/withdraw\/getOrderList url script-request-header https://raw.githubusercontent.com/acehanc/gaigai/main/Task/youth.js
 
 
 
