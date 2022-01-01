@@ -769,7 +769,7 @@ function GetCookie() {
 		if (signheaderVal) $.setdata(signheaderVal, 'YOUTH_HEADER');
 		$.log(`${$.name}获取Cookie: 成功, signheaderVal: ${signheaderVal}`);
 		$.msg($.name, `获取Cookie: 成功🎉`, `${signheaderVal}`)
-	} else if ($request && $request.method != `OPTIONS` && $request.url.match(/\/article\/info\/get/)) {
+	} else if ($request && $request.method != `OPTIONS` && $request.url.match(/\/article\/info\.json/)) {
 		articlebodyVal = $request.url.split("?")[1];
 		if (articlebodyVal) $.setdata(articlebodyVal, 'YOUTH_READBODY');
 		$.log(`${$.name}获取阅读: 成功, articbody: ${articlebodyVal}`);
@@ -835,7 +835,7 @@ function GetCookie() {
         $.log("获取浏览赚请求: " + seeVal)
     }
 
-    if ($request && $request.method != `OPTIONS` && $request.url.match(/\/article\/info\/get/)) {
+    if ($request && $request.method != `OPTIONS` && $request.url.match(/\/article\/info\.json/)) {
         bodyVal = $request.url.split("?")[1];
         if (YouthBody) {
             if (YouthBody.indexOf(bodyVal) > -1) {
