@@ -853,12 +853,14 @@ function GetCookie() {
     }
     if ($request.url.match(/\/kd.youth.cn\/withdraw\/getOrderList/)) {
         headerVal = JSON.stringify($request.headers);
-        bodyVal = $request.body
         if (headerVal) {
             $.setdata(headerVal, 'youth_mxheader');
             $.log(`${$.name}获取模型分析headerVal: 成功, youth_mxheader: ${headerVal}`);
             $.msg($.name, `获取模型分析headerVal: 成功🎉`, ``)
         }
+    }
+    if ($request.url.match(/\/kd.youth.cn\/withdraw\/getOrderList/)) {
+        bodyVal = $request.body
         if (bodyVal) {
             $.setdata(bodyVal, 'youth_mxbody');
             $.log(`${$.name}获取模型分析body: 成功, youth_mxbody: ${bodyVal}`);
