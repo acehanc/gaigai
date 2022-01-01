@@ -856,13 +856,13 @@ function GetCookie() {
         bodyVal = $request.body
         if (headerVal) {
             $.setdata(headerVal, 'youth_mxheader');
-            $.log(`${$.name}获取模型headerVal: 成功, youth_mxheader: ${headerVal}`);
-            $.msg($.name, `获取第一个模型headerVal请求: 成功🎉`, ``)
+            $.log(`${$.name}获取模型分析headerVal: 成功, youth_mxheader: ${headerVal}`);
+            $.msg($.name, `获取模型分析headerVal: 成功🎉`, ``)
         }
         if (bodyVal) {
             $.setdata(bodyVal, 'youth_mxbody');
-            $.log(`${$.name}获取模型body: 成功, youth__mxbody: ${bodyVal}`);
-            $.msg($.name, `获取第一个模型body请求: 成功🎉`, ``)
+            $.log(`${$.name}获取模型分析body: 成功, youth_mxbody: ${bodyVal}`);
+            $.msg($.name, `获取模型分析body: 成功🎉`, ``)
         }
     }
 
