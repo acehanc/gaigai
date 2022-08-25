@@ -1,0 +1,33 @@
+name: hangit
+
+on:
+  workflow_dispatch:
+  schedule:
+      - cron: '0 0-15 * * *'
+jobs:
+  build:
+    runs-on: macos-latest
+    timeout-minutes: 250
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: npm install
+        run: |
+          npm install md5-node
+          npm install crypto-js
+          npm install
+      - name: '运行 【hangit】'
+        run: | 
+          node Task/hangit.js
+
+    env:
+          QYWX_KEY: ${{ secrets.QYWX_KEY }}
+          PUSH_PLUS_TOKEN: ${{ secrets.PUSH_PLUS_TOKEN }}
+          PUSH_KEY: ${{ secrets.PUSH_KEY2 }}
+          BARK_PUSH: ${{ secrets.BARK_PUSH }}
