@@ -19,7 +19,6 @@ jobs:
           node-version: 14.x
       - name: npm install
         run: |
-          npm install md5-node
           npm install crypto-js
           npm install
           
@@ -42,7 +41,6 @@ jobs:
           node-version: 14.x
       - name: npm install
         run: |
-          npm install md5-node
           npm install crypto-js
           npm install
       - name: '运行 【han5-2】'
