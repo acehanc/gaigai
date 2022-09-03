@@ -22,8 +22,10 @@ jobs:
           npm install md5-node
           npm install crypto-js
           npm install
+          
       - name: '运行 【han5-1】'
         run: | 
+          curl --silent --location --request GET 'https://cip.cc/'
           node Task/han5-1.js
           
   build2:
@@ -45,5 +47,6 @@ jobs:
           npm install
       - name: '运行 【han5-2】'
         run: | 
+          curl --silent --location --request GET 'https://cip.cc/'
           node Task/han5-2.js
           
