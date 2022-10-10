@@ -1,0 +1,31 @@
+name: shuben
+
+on:
+  workflow_dispatch:
+  schedule:
+      - cron: '0 * * * *'
+  
+jobs:
+  build:
+    runs-on: macos-latest
+    timeout-minutes: 150
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: npm install
+        run: |
+          npm install md5-node
+          npm install querystring
+          npm install
+          
+      - name: '运行 【shuben1】'
+        run: | 
+          curl --silent --location --request GET 'https://cip.cc/'
+          node Task/shuben.js
+          
