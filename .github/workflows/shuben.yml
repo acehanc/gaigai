@@ -28,3 +28,26 @@ jobs:
           curl --silent --location --request GET 'https://cip.cc/'
           node Task/shuben.js
           
+
+  build2:
+    runs-on: macos-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: npm install
+        run: |
+          npm install md5-node
+          npm install querystring
+          npm install
+          
+      - name: '运行 【shuben2】'
+        run: | 
+          curl --silent --location --request GET 'https://cip.cc/'
+          node Task/shuben2.js
+          
