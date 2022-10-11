@@ -8,6 +8,7 @@ on:
 jobs:
   build:
     runs-on: macos-latest
+    timeout-minutes: 150
     if: github.event.repository.owner.id
     steps:
       - name: Checkout
@@ -31,7 +32,8 @@ jobs:
 
   build2:
     runs-on: macos-latest
-    if: github.event.repository.owner.id == github.event.sender.id
+    timeout-minutes: 150
+    if: github.event.repository.owner.id
     steps:
       - name: Checkout
         uses: actions/checkout@v2
