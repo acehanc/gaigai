@@ -3,11 +3,10 @@ name: dfh
 on:
   workflow_dispatch:
   schedule:
-      - cron: '20 0-15 * * *'
+      - cron: '0 */3 * * *'
 jobs:
   build:
     runs-on: macos-latest
-    timeout-minutes: 250
     if: github.event.repository.owner.id == github.event.sender.id
     steps:
       - name: Checkout
@@ -23,7 +22,7 @@ jobs:
           npm install
       - name: '运行 【dfh】'
         run: | 
-          node Task/dfh.js
+          node Task/dfh1.js
 
     env:
           DFH: ${{ secrets.DFH }}
@@ -35,7 +34,6 @@ jobs:
 
   build2:
     runs-on: macos-latest
-    timeout-minutes: 250
     if: github.event.repository.owner.id == github.event.sender.id
     steps:
       - name: Checkout
