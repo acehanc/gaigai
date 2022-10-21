@@ -3,11 +3,11 @@ name: dfh
 on:
   workflow_dispatch:
   schedule:
-      - cron: '0 */3 * * *'
+      - cron: '0 */5 * * *'
 jobs:
   build:
     runs-on: macos-latest
-    timeout-minutes: 360
+    timeout-minutes: 300
     if: github.event.repository.owner.id
     steps:
       - name: Checkout
@@ -35,7 +35,7 @@ jobs:
 
   build2:
     runs-on: macos-latest
-    timeout-minutes: 360
+    timeout-minutes: 300
     if: github.event.repository.owner.id
     steps:
       - name: Checkout
