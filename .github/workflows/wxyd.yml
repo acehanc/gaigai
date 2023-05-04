@@ -1,4 +1,4 @@
-name: cllpro
+name: wxyd
 
 on:
   workflow_dispatch:
