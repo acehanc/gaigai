@@ -23,11 +23,4 @@ jobs:
           npm install
       - name: '运行 【wxyd】'
         run: | 
-          curl --silent --location --request GET 'https://cip.cc/'
           node Task/wxyd.js
-
-    env:
-          QYWX_KEY: ${{ secrets.QYWX_KEY }}
-          PUSH_PLUS_TOKEN: ${{ secrets.PUSH_PLUS_TOKEN }}
-          PUSH_KEY: ${{ secrets.PUSH_KEY2 }}
-          BARK_PUSH: ${{ secrets.BARK_PUSH }}
