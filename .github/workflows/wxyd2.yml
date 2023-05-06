@@ -3,7 +3,7 @@ name: wxyd2
 on:
   workflow_dispatch:
   schedule:
-      - cron: '43 */2 * * *'
+      - cron: '55 */2 * * *'
 jobs:
   build:
     runs-on: macos-latest
