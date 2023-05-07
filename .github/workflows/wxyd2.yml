@@ -25,3 +25,24 @@ jobs:
         run: | 
           curl --silent --location --request GET 'https://cip.cc/'
           node Task/wxyd2.js
+jobs2:
+  build:
+    runs-on: macos-latest
+    timeout-minutes: 60
+    if: github.event.repository.owner.id
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.1.0
+
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v3.1.0
+        with:
+          node-version: 14.x
+      - name: npm install
+        run: |
+          npm install md5-node
+          npm install
+      - name: '运行 【wxyd2-2】'
+        run: | 
+          curl --silent --location --request GET 'https://cip.cc/'
+          node Task/wxyd2-2.js
