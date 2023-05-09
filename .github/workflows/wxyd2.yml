@@ -3,11 +3,11 @@ name: wxyd2
 on:
   workflow_dispatch:
   schedule:
-      - cron: '30 0-16 * * *'
+      - cron: '30 0-18/2 * * *'
 jobs:
   build:
     runs-on: macos-latest
-    timeout-minutes: 50
+    timeout-minutes: 110
     if: github.event.repository.owner.id
     steps:
       - name: Checkout
