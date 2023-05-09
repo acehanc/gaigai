@@ -7,7 +7,7 @@ on:
 jobs:
   build:
     runs-on: macos-latest
-    timeout-minutes: 55
+    timeout-minutes: 50
     if: github.event.repository.owner.id
     steps:
       - name: Checkout
