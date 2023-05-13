@@ -23,7 +23,6 @@ jobs:
           npm install
       - name: '运行 【wxyd2】'
         run: | 
-          curl --silent --location --request GET 'https://cip.cc/'
           node Task/wxyd2.js
 
   build2:
@@ -44,7 +43,6 @@ jobs:
           npm install
       - name: '运行 【wxyd2-2】'
         run: | 
-          curl --silent --location --request GET 'https://cip.cc/'
           node Task/wxyd2-2.js
 
   build3:
@@ -65,5 +63,4 @@ jobs:
           npm install
       - name: '运行 【wxyd2-3】'
         run: | 
-          curl --silent --location --request GET 'https://cip.cc/'
           node Task/wxyd2-3.js
